@@ -13,6 +13,7 @@ public class DataType {
 
         char c='A'; // 2 byte UTF-16
         boolean b = true;
+
         System.out.println((char)60); //<
         System.out.println((int)'A'); //65
 
@@ -35,5 +36,7 @@ public class DataType {
         System.out.println("Float: " + fx);
         System.out.println("Float: " + fy);
         System.out.println("Double: " + dx);
+        System.out.println("Char: " + c);
+        System.out.println("Boolean: " + b);
     }
 }
