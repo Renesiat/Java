@@ -11,5 +11,4 @@ public abstract class Literature {
         this.title = title;
         return this;
     }
-    public abstract void print();
 }

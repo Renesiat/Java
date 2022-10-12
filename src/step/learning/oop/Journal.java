@@ -1,6 +1,6 @@
 package step.learning.oop;
 
-public class Journal extends Literature {
+public class Journal extends Literature implements Printable,Periodic{
 
     public String getPublication() {
         return publication;
@@ -27,7 +27,7 @@ public class Journal extends Literature {
 
 
 
-    @Override
+    //@Override
     public void print() {
         System.out.printf("Journal. Publication: %s. Title: %s%n",
                 this.publication, this.titleJ);
