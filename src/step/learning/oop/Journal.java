@@ -1,6 +1,8 @@
 package step.learning.oop;
 
-public class Journal extends Literature implements Printable,Periodic{
+import java.io.Serializable;
+
+public class Journal extends Literature implements Printable,Periodic, Serializable {
 
     public String getPublication() {
         return publication;
@@ -25,7 +27,11 @@ public class Journal extends Literature implements Printable,Periodic{
     private String titleJ;
 
 
-
+    @Override
+    public String toString() {
+        return String.format("Journal. Publication: %s. Title: %s%n",
+                this.publication, this.titleJ);
+    }
 
     //@Override
     public void print() {

@@ -1,12 +1,13 @@
 package step.learning.oop;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class NewsPaper extends Literature
-        implements Printable,Periodic{
+        implements Printable,Periodic, Serializable {
     public Date getDate() {
         return date;
     }
@@ -29,24 +30,30 @@ public class NewsPaper extends Literature
             = new SimpleDateFormat("dd.MM.yyyy");
     static private final SimpleDateFormat sdfShortPrinter
             = new SimpleDateFormat("dd.MM");
+public SimpleDateFormat Printer(){
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    calendar.get(Calendar.YEAR);
+    Calendar now = Calendar.getInstance();
+    SimpleDateFormat printer;
 
+    return printer = (now.get(Calendar.YEAR)==calendar.get(Calendar.YEAR))
+            ? sdfShortPrinter
+            : sdfPrinter;
+}
    @Override
     public void print() {
         System.out.printf("Newspaper '%s' for %s%n",
                 super.getTitle(),sdfPrinter.format( this.getDate()));
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.get(Calendar.YEAR);
-        Calendar now = Calendar.getInstance();
-        SimpleDateFormat printer;
 
-        printer = (now.get(Calendar.YEAR)==calendar.get(Calendar.YEAR))
-            ? sdfShortPrinter
-       : sdfPrinter;
         System.out.printf("Newspaper'%s' for %s%n",
-                super.getTitle(), printer.format(this.getDate()));
+                super.getTitle(), Printer().format(this.getDate()));
     }
-
+    @Override
+    public String toString() {
+        return String.format("Newspaper'%s' for %s%n",
+                super.getTitle(), Printer().format(this.getDate()));
+    }
     @Override
     public NewsPaper setTitle(String title) {
         super.setTitle(title);
