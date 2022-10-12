@@ -1,11 +1,14 @@
 package step.learning.oop;
 
+import step.learning.serial.DataObject;
+
+import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Library {
+    private final String FUNDS_FILE = "funds.ser";
     private List<Literature> funds;
 
     public Library() {
@@ -41,13 +44,30 @@ public class Library {
                 ((Printable)literature).print();
         }
     }
+    public void deserializeFunds(){
+        try(FileInputStream file = new FileInputStream(FUNDS_FILE)){
+            ObjectInputStream ois = new ObjectInputStream(file);
+            @SuppressWarnings("unchecked")
+            List<Literature> funds = (List<Literature>) ois.readObject();
 
+            for (Literature data:funds){
+                System.out.println(data);
+            }
 
-    public void Run() {
+        }catch(Exception ex){
+            System.out.println("Deserialize error: " + ex.getMessage());
+            return;
+        }
+        System.out.println("---Done---");
+    }
+    public void serializeFunds(){
         add(new Book()
                 .setAuthor("Knuth")
                 .setTitle("Art of programing"));
-       add(new Hologram().setTitle("Pectoral"));
+        add(new Book()
+                .setAuthor("Knuth")
+                .setTitle("Art of programing"));
+        add(new Hologram().setTitle("Pectoral"));
         add(new Journal()
                 .setPublication("Vogue")
                 .setTitleJ("Something"));
@@ -64,6 +84,23 @@ public class Library {
                     e.getMessage());
             return;
         }
+
+        try(FileOutputStream file = new FileOutputStream(FUNDS_FILE))
+        {
+            ObjectOutputStream oos = new ObjectOutputStream(file);
+            oos.writeObject(funds);
+            oos.flush();
+        }catch (IOException ex){
+            System.out.println("Serialize error:" + ex.getMessage());
+            return;
+        }
+        System.out.println("---Done---");
+    }
+
+    public void Run() {
+        //serializeFunds();
+        //deserializeFunds();
+
         //printFunds();
         //printPeriodic();
         //printNonPeriodic();

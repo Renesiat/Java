@@ -1,6 +1,8 @@
 package step.learning.oop;
 
-public class Book extends Literature implements Printable{
+import java.io.Serializable;
+
+public class Book extends Literature implements Printable, Serializable {
     private String author;
 
     public String getAuthor() {
@@ -12,13 +14,19 @@ public class Book extends Literature implements Printable{
         return this;
     }
     private String Title;
-    public Book setTitle(String title){
-        super.setTitle(title);
-        return this;
+
+    @Override
+    public String getTitle() {
+        return Title;
     }
+
     public void print(){
         System.out.printf("Book. Author: %s. Title: %s%n",
                 this.author, super.getTitle());
     }
-
+    @Override
+    public String toString() {
+        return String.format("Book. Author: %s. Title: %s%n",
+                this.author, super.getTitle());
+    }
 }
