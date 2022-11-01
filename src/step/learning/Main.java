@@ -1,6 +1,7 @@
 package step.learning;
 
 
+import step.learning.annotations.AnnotationsDemo;
 import step.learning.files.FileNavigation;
 import step.learning.files.FilesDemo;
 import step.learning.oop.Library;
@@ -14,6 +15,7 @@ public class Main {
         //new Library().Run();
         //new SerializationDemo().Run();
         //new FilesDemo().Run();
-        new FileNavigation().Run();
+        //new FileNavigation().Run();
+        new AnnotationsDemo().Run();
     }
 }
