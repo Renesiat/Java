@@ -1,12 +1,6 @@
 package step.learning;
 
 
-import step.learning.annotations.AnnotationsDemo;
-import step.learning.files.FileNavigation;
-import step.learning.files.FilesDemo;
-import step.learning.oop.Library;
-import step.learning.serial.SerializationDemo;
-
 public class Main {
     public static void main(String[] args) {
         //new DataType().Run();
@@ -16,6 +10,9 @@ public class Main {
         //new SerializationDemo().Run();
         //new FilesDemo().Run();
         //new FileNavigation().Run();
-        new AnnotationsDemo().Run();
+        //new AnnotationsDemo().Run();
+        Injector injector = Guice.createInjector( new ConfigModule() ) ;
+         app = injector.getInstance( App.class ) ;  // Resolving
+        app.run() ;
     }
 }
