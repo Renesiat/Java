@@ -1,8 +1,12 @@
 package step.learning;
 
+import step.learning.annotations.DemoClass;
+import step.learning.annotations.EntryPoint;
+
 import java.util.*;
 
 //комплексні типи данних - массиви та колекції
+@DemoClass(priority = 2)
 public class Complex {
     private final Random random;
 
@@ -89,8 +93,8 @@ public class Complex {
         String userInput = kbScanner.nextLine();
         System.out.printf("%s-%s%n", userInput, dictionary.get(userInput));
     }
-
-    public void Run() {
+@EntryPoint
+    public void run() {
         arrayDemo();
         collectionDemo();
     }

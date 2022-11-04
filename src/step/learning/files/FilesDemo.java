@@ -1,13 +1,14 @@
 package step.learning.files;
 
+import step.learning.annotations.DemoClass;
+import step.learning.annotations.EntryPoint;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
+@DemoClass(priority = 2)
 public class FilesDemo {
-    public void Run() {
+    @EntryPoint
+    public void run() {
         fsDemo();
         //ioDemo();
     }

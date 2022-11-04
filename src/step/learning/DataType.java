@@ -1,7 +1,12 @@
 package step.learning;
 
+import step.learning.annotations.DemoClass;
+import step.learning.annotations.EntryPoint;
+
+@DemoClass
 public class DataType {
-    public void Run(){
+    @EntryPoint
+    public void run(){
         System.out.println(ConsoleColors.PURPLE+"Data types demo"+ConsoleColors.RESET);
         byte bx = -120;//всі типи знакові! беззнакових непердбачено
         short sx = 20;

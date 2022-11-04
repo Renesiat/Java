@@ -1,9 +1,12 @@
 package step.learning;
 
+import step.learning.annotations.DemoClass;
+import step.learning.annotations.EntryPoint;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+@DemoClass(priority = 1)
 public class Dictionary {
     Map<String, String> dictionary;
 
@@ -94,7 +97,8 @@ public class Dictionary {
         String ukr_word = value.nextLine();
         dictionary.put(eng_word, ukr_word);
     }
-    public void Run() {
+    @EntryPoint
+    public void run() {
         Print();
     }
 

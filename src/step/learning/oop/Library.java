@@ -1,12 +1,13 @@
 package step.learning.oop;
 
-import step.learning.serial.DataObject;
+import step.learning.annotations.DemoClass;
+import step.learning.annotations.EntryPoint;
 
 import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-
+@DemoClass()
 public class Library {
     private final String FUNDS_FILE = "funds.ser";
     private List<Literature> funds;
@@ -96,8 +97,8 @@ public class Library {
         }
         System.out.println("---Done---");
     }
-
-    public void Run() {
+@EntryPoint
+    public void run() {
         //serializeFunds();
         //deserializeFunds();
 
